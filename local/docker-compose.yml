@@ -1,0 +1,16 @@
+services:
+  data_csv_streaming:
+    build: ../
+    container_name: data_csv_streaming
+    environment:
+      STREAM_SERVER_PORT: ${STREAM_SERVER_PORT}
+      STREAM_FILENAME: ${STREAM_FILENAME}
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "127.0.0.1:${STREAM_SERVER_PORT}:${STREAM_SERVER_PORT}"
+    networks:
+      - lahatrad_network
+
+networks:
+  lahatrad_network:
