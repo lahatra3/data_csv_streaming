@@ -8,7 +8,7 @@ const server = createServer((req, res) => {
     if (req.url === "/data.csv" && req.method === "GET") {
         const reader = createReadStream(STREAM_FILENAME, {
             encoding: "utf-8",
-            highWaterMark: 1024 * 1024 * 7,
+            highWaterMark: 1024 * 1024 * 131,
         });
 
         res.statusCode = 200;
